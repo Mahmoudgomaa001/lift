@@ -19,23 +19,37 @@ void loop()
 {
   //1 rotation counter clockwise
   stepper(-number_steps);
-  delay(1000);
+
   //1 rotation clockwise
   delay(5000);
   stepper(-number_steps);
-  delay(1000);
-  delay(5000);
 
+  delay(5000);
+  //1 rotation counter clockwise
+  stepper(-number_steps);
+
+  //1 rotation clockwise
+  delay(5000);
+  stepper(-number_steps);
+
+  delay(5000);
   stepper(number_steps);
-  delay(1000);
+
   //1 rotation clockwise
   delay(5000);
   stepper(number_steps);
-  delay(1000);
   //1 rotation clockwise
   delay(5000);
 
-  
+  stepper(number_steps);
+
+  //1 rotation clockwise
+  delay(5000);
+  stepper(number_steps);
+  //1 rotation clockwise
+  delay(5000);
+
+
   //1 rotation counter clockwise
   //  stepper(number_steps);
   //  delay(1000);
@@ -44,13 +58,13 @@ void loop()
   //  delay(1000);
 
   /////////////////////
-  //Keep track of step number
-  for (int thisStep = 0; thisStep < number_steps; thisStep++) {
-    stepper(1);
-  }
-  delay(1000);
-  for (int thisStep = number_steps; thisStep > 0; thisStep--) {
-    stepper(-1);
-  }
-  delay(1000);
+//  //Keep track of step number
+//  for (int thisStep = 0; thisStep < number_steps; thisStep++) {
+//    stepper(1);
+//  }
+//  delay(1000);
+//  for (int thisStep = number_steps; thisStep > 0; thisStep--) {
+//    stepper(-1);
+//  }
+//  delay(1000);
 }
