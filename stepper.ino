@@ -1,4 +1,18 @@
 //
+#define IN1   4
+#define IN2   5
+#define IN3   7
+#define IN4   8
+int Steps = 0;
+int Direction = 0;
+
+void stepperSetup() {
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+}
 void stepper(double nbStep) {
   if (nbStep >= 0) {
     Direction = 1;
