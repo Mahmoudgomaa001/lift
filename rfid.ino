@@ -48,12 +48,12 @@ void rfidLoop()
 
     Serial.print(" ");
     content.concat(String(nuidPICC[i], HEX));
-    content.concat(String(" "));
 
   }
+  Serial.println("");
   content.toUpperCase();
   Serial.println(content);
-  if (content.substring(1) == "D3 C4 A7 1A" || content.substring(1) == "D6 17 2F 1E") //change here the UID of the card/cards that you want to give access
+  if (content.substring(1) == "D3C4A71A" || content.substring(1) == "D6172F1E") //change here the UID of the card/cards that you want to give access
   {
     Serial.println("Authorized access");
     Serial.println();
