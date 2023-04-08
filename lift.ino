@@ -4,10 +4,8 @@
 #define IN4   8
 int Steps = 0;
 int Direction = 0;
-int number_steps = 512; //= 2048/4
-//new 
-////sdfsdfsfsfsfsfsfsdfsdfsfsfsfs
-//int number_steps = 1024; 
+//int number_steps = 512; //= 2048/4
+int number_steps = 1024; 
 void setup()
 {
   Serial.begin(9600);
@@ -25,6 +23,15 @@ void loop()
   //1 rotation clockwise
   stepper(-number_steps);
   delay(1000);
+  //////////
+    //1 rotation counter clockwise
+  stepper(number_steps);
+  delay(1000);
+  //1 rotation clockwise
+  stepper(-number_steps);
+  delay(1000);
+
+  /////////////////////
   //Keep track of step number
   for (int thisStep = 0; thisStep < number_steps; thisStep++) {
     stepper(1);
