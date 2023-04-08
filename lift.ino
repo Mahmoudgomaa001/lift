@@ -5,7 +5,7 @@
 int Steps = 0;
 int Direction = 0;
 //int number_steps = 512; //= 2048/4
-int number_steps = 1024;
+int number_steps = 1,280;
 void setup()
 {
   Serial.begin(9600);
