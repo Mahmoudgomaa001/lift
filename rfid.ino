@@ -52,8 +52,8 @@ void rfidLoop()
   }
   Serial.println("");
   content.toUpperCase();
-  Serial.println(content.substring(1,8));
-  if (content.substring(1,8) == "D3C4A71A" || content.substring(1,8) == "D6172F1E") //change here the UID of the card/cards that you want to give access
+  Serial.println(content.substring(0,8));
+  if (content.substring(0,8) == "D3C4A71A" || content.substring(0,8) == "D6172F1E") //change here the UID of the card/cards that you want to give access
   {
     Serial.println("Authorized access");
     Serial.println();
