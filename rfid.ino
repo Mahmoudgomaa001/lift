@@ -13,7 +13,7 @@ byte nuidPICC[4];
 void rfidSetup()
 {
   // Init RS232
-  Serial.begin(9600);
+//  Serial.begin(9600);
 
   // Init SPI bus
   SPI.begin();
