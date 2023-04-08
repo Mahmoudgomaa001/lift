@@ -63,7 +63,7 @@ void stepper(double nbStep) {
         digitalWrite(IN4, LOW);
         break;
     }
-    delayMicroseconds(500);
+    delayMicroseconds(1000);
     if (Direction == 1) {
       Steps++;
     }
