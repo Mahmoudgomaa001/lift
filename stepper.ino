@@ -1,4 +1,3 @@
-//
 #define IN1   4
 #define IN2   5
 #define IN3   7

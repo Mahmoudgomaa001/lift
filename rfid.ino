@@ -13,7 +13,7 @@ byte nuidPICC[4];
 void rfidSetup()
 {
   // Init RS232
-//  Serial.begin(9600);
+  //  Serial.begin(9600);
 
   // Init SPI bus
   SPI.begin();
@@ -49,8 +49,10 @@ void rfidLoop()
     Serial.print(" ");
     content.concat(String(nuidPICC[i], HEX));
     content.concat(String(" "));
+
   }
   content.toUpperCase();
+  Serial.println(content);
   if (content.substring(1) == "D3 C4 A7 1A" || content.substring(1) == "D6 17 2F 1E") //change here the UID of the card/cards that you want to give access
   {
     Serial.println("Authorized access");
