@@ -5,7 +5,7 @@
 int Steps = 0;
 int Direction = 0;
 int number_steps = 512; //= 2048/4
-//new commhhhddd
+//new commhhhdddggggg
 //int number_steps = 1024; 
 void setup()
 {
