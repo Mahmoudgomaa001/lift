@@ -5,7 +5,7 @@ void setup()
 {
   Serial.begin(9600);
   //  stepperSetup();
-  Serial.println("1");
+  Serial.println("5");
   rfidSetup();
   Serial.println("2");
   servoSetup();
