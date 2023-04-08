@@ -23,8 +23,8 @@ void loop()
   //1 rotation clockwise
   stepper(-number_steps);
   delay(1000);
-  //////////
-    //1 rotation counter clockwise
+  delay(5000);
+  //1 rotation counter clockwise
   stepper(number_steps);
   delay(1000);
   //1 rotation clockwise
