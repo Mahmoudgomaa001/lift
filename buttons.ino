@@ -33,7 +33,7 @@ void btnLoop()
         diff = cf - i;
         for (int i = 0; i < diff; i++) {
           display(String("Going up from") + String(cf + 1) + " to " + String(tg), 0, 0);
-          stepper(-floor_steps);
+          stepper(floor_steps);
           setCurrentFloor(cf + 1);
           display(String("Going up from") + String(getCurrentFloor() + 1) + " to " + String(tg), 0, 0);
         }
@@ -43,7 +43,7 @@ void btnLoop()
         diff = i - cf;
         for (int i = 0; i < diff; i++) {
           display(String("Going down from") + String(cf + 1) + " to " + String(tg), 0, 0);
-          stepper(floor_steps);
+          stepper(-floor_steps);
           setCurrentFloor(cf - 1);
           display(String("Going down from") + String(getCurrentFloor() + 1) + " to " + String(tg), 0, 0);
         }
