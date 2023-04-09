@@ -4,7 +4,7 @@ int number_steps = 1280;
 void setup()
 {
   Serial.begin(9600);
-//  stepperSetup();
+  stepperSetup();
 
   //  rfidSetup();
 
