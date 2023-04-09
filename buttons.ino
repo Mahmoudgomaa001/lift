@@ -25,7 +25,7 @@ void btnLoop()
   // Si Appuie BP1
   for (int i = 0; i < btn_num ; i++) {
     bool sg = digitalRead(btn[i]);
-    if (btn_old_sg[i] != sg)
+    if (btn_old_sg[i] != sg && sg == LOW)
     {
       display(String(i), 0, 0);
       Serial.println(i);
