@@ -90,10 +90,11 @@ void stepper(double nbStep) {
     if (Steps < 0) {
       Steps = 7;
     }
+    if (getCurrentFloor() != 0 && getBtn(init_btn_index)) {
+      Serial.println("pressed");
+      setCurrentFloor(0);
+      return;
+    }
   }
-  if (!getCurrentFloor() == 0 && getBtn(init_btn_index)) {
-    Serial.println("pressed");
-    setCurrentFloor(0);
-    return;
-  }
+
 }
