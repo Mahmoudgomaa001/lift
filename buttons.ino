@@ -30,6 +30,7 @@ void btnLoop()
       display(String(i), 0, 0);
       Serial.println(i);
     }
+    btn_old_sg[i] = sg;
   }
 
 
