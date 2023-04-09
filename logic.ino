@@ -1,8 +1,8 @@
 int current_floor = -1;
 int target_floor = -1;
-#define floor_steps  1280
+#define floor_steps  1536
 #define current_str  "Current : "
-#define target_str  "Target : "
+#define target_str  "Target  : "
 #define no_order_str  "No orders !"
 
 int load = 0;
@@ -29,7 +29,7 @@ int getFloorSteps() {
 }
 void changeFloor(int i) {
 
-  if (!access)return;
+  //  if (!access)return;
   if (load > max_load) {
     load_mode = 0;
     return;
@@ -39,7 +39,8 @@ void changeFloor(int i) {
   target_floor = i + 1;
   if (current_floor == i)return;
   else if (current_floor < i) {
-    closeDoor();
+    if (getDoorStatus())closeDoor();
+
     diff = i - current_floor;
     for (int i = 0; i < diff; i++) {
       display(current_str + String(current_floor + 1), target_str + String(target_floor), getUpArrowkey());
@@ -51,7 +52,7 @@ void changeFloor(int i) {
 
   }
   else if (current_floor > i) {
-    closeDoor();
+    if (getDoorStatus())closeDoor();
     diff = current_floor - i;
     for (int i = 0; i < diff; i++) {
       display(current_str + String(current_floor + 1), target_str + String(target_floor), getDownArrowkey());
@@ -75,7 +76,7 @@ void handler() {
   if (timer == 0 && access) {
     display("Authorized access", "Opening door", getNoArrowkey());
     openDoor();
-    display("Max load:" + String(max_load) + " L:" + String(load), "Waiting for order", getNoArrowkey());
+    display("Max load:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
     timer = millis();
   }
   if (access &&  millis() < timer + timer_time_out) {
@@ -83,7 +84,7 @@ void handler() {
     if (getBtn(getIRIndex())) {
       if (load_mode) {
         load++;
-        display("Max load:" + String(max_load) + " L:" + String(load), "Waiting for order", getNoArrowkey());
+        display("Max load:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
         //print
       }
       else if (!load_mode && load > 0) {
@@ -101,6 +102,8 @@ void handler() {
   if (access &&  millis() > timer + timer_time_out) {
     access = 0;
     timer = 0;
+    if (getDoorStatus())closeDoor();
+    display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
   }
 
 
