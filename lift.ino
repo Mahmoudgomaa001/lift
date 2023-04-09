@@ -6,15 +6,15 @@ void setup()
   Serial.begin(9600);
   //  stepperSetup();
 
-  rfidSetup();
+//  rfidSetup();
 
-  servoSetup();
+//  servoSetup();
   lcdSetup();
 
 }
 void loop()
 {
-  rfidLoop();
+//  rfidLoop();
 
 }
 void testStepper() {
