@@ -39,6 +39,7 @@ void changeFloor(int i) {
   target_floor = i + 1;
   if (current_floor == i)return;
   else if (current_floor < i) {
+    closeDoor();
     diff = i - current_floor;
     for (int i = 0; i < diff; i++) {
       display(current_str + String(current_floor + 1), target_str + String(target_floor), getUpArrowkey());
@@ -50,6 +51,7 @@ void changeFloor(int i) {
 
   }
   else if (current_floor > i) {
+    closeDoor();
     diff = current_floor - i;
     for (int i = 0; i < diff; i++) {
       display(current_str + String(current_floor + 1), target_str + String(target_floor), getDownArrowkey());
