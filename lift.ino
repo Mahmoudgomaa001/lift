@@ -11,7 +11,7 @@ void setup()
   //  servoSetup();
   btnSetup();
   lcdSetup();
-
+  get_init_floor();
 }
 void loop()
 {
@@ -21,7 +21,7 @@ void loop()
 }
 void testStepper() {
   //1 rotation counter clockwise
-  stepper(-number_steps);
+  stepper(-number_steps); //up
 
   //1 rotation clockwise
   delay(5000);
@@ -36,7 +36,7 @@ void testStepper() {
   stepper(-number_steps);
 
   delay(5000);
-  stepper(number_steps);
+  stepper(number_steps);//down
 
   //1 rotation clockwise
   delay(5000);

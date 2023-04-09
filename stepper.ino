@@ -2,6 +2,7 @@
 #define IN2   5
 #define IN3   7
 #define IN4   8
+#define init_btn_index  4
 int Steps = 0;
 int Direction = 0;
 
@@ -89,5 +90,10 @@ void stepper(double nbStep) {
     if (Steps < 0) {
       Steps = 7;
     }
+  }
+  if (!getCurrentFloor() == 0 && getBtn(init_btn_index)) {
+
+    setCurrentFloor(0);
+    return;
   }
 }
