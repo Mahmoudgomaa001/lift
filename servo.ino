@@ -8,7 +8,7 @@ void servoSetup() {
   servo.attach(servoPin);
 }
 
-void servoOpen() {
+void openDoor() {
 
   // scan from 0 to 180 degrees
   for (angle = 0; angle < 180; angle++) {
@@ -17,7 +17,7 @@ void servoOpen() {
   }
 
 }
-void servoClose() {
+void closeDoor() {
   // now scan back from 180 to 0 degrees
   for (angle = 180; angle > 0; angle--) {
     servo.write(angle);
