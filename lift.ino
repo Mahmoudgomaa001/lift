@@ -5,11 +5,11 @@ void setup()
 {
   Serial.begin(9600);
   //  stepperSetup();
-  Serial.println("5");
+
   rfidSetup();
-  Serial.println("2");
+
   servoSetup();
-  Serial.println("3");
+  lcdSetup();
 
 }
 void loop()
