@@ -1,6 +1,6 @@
 
 #define btn_num 5
-int btn [btn_num] = {A0, A1, A3, 9, 2};
+  int btn [btn_num] = {9, A0, A1, A2, 2};
 bool btn_old_sg [btn_num] = {1, 1, 1, 1, 1};
 /*
     زر طابق الاول a0
@@ -27,8 +27,8 @@ void btnLoop()
     bool sg = digitalRead(btn[i]);
     if (btn_old_sg[i] != sg && sg == LOW)
     {
-      display(String(i), 0, 0);
-      Serial.println(i);
+      display(String(i+1), 0, 0);
+      Serial.println(i+1);
     }
     btn_old_sg[i] = sg;
   }
