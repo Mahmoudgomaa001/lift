@@ -11,7 +11,7 @@ void setup()
   //  servoSetup();
   btnSetup();
   lcdSetup();
-//  get_init_floor();
+  get_init_floor();
 //  stepper(-number_steps); //up
 }
 void loop()
