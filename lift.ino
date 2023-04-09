@@ -9,6 +9,7 @@ void setup()
   //  rfidSetup();
 
   //  servoSetup();
+  btnSetup();
   lcdSetup();
 
 }
