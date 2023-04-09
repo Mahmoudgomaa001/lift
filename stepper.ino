@@ -92,7 +92,7 @@ void stepper(double nbStep) {
     }
   }
   if (!getCurrentFloor() == 0 && getBtn(init_btn_index)) {
-
+    Serial.println("pressed");
     setCurrentFloor(0);
     return;
   }
