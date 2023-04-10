@@ -5,7 +5,7 @@ Servo servo;
 int angle = 0;  // servo position in degrees
 bool door_status = 0;
 void servoSetup() {
-  servo.write(180);
+  servo.write(0);
   servo.attach(servoPin);
 }
 
