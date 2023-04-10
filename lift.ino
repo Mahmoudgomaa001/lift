@@ -7,7 +7,7 @@ void setup()
   stepperSetup();
   rfidSetup();
   servoSetup();
-  buzzerSetup()
+  buzzerSetup();
   btnSetup();
   lcdSetup();
   get_init_floor();
