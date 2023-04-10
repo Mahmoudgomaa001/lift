@@ -93,6 +93,7 @@ void handler() {
     if (coming_card != "") {
       display("Anonymous user", "Access denied", getNoArrowkey());
       coming_card = "";
+      timer = millis();
     }
 
   }
@@ -132,7 +133,10 @@ void handler() {
     if (getDoorStatus())closeDoor();
     display(current_str + String(current_floor), no_order_str, getNoArrowkey());
   }
+  if (!access &&  millis() > timer + timer_time_out) {
 
+    display(current_str + String(current_floor), no_order_str, getNoArrowkey());
+  }
 
 }
 bool getAccess() {
