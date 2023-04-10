@@ -131,11 +131,12 @@ void handler() {
     access = 0;
     timer = 0;
     if (getDoorStatus())closeDoor();
-   display("Welcome !!!", no_order_str, getNoArrowkey());
+    display("Welcome !!!", no_order_str, getNoArrowkey());
   }
-  if (!access &&  millis() > timer + timer_time_out) {
+  if (!access &&  millis() > timer + timer_time_out && timer != 0) {
 
     display("Welcome !!!", no_order_str, getNoArrowkey());
+    timer = 0;
   }
 
 }
