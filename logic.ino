@@ -63,9 +63,11 @@ void changeFloor(int i) {
     display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
 
   }
-  openDoor();
-  delay(5000);
-  closeDoor();
+  if (access) {
+    openDoor();
+    delay(5000);
+    closeDoor();
+  }
   load_mode = 1;
   load = 0;
   access = 0;
@@ -91,11 +93,12 @@ void handler() {
         load--;
         display("Max load:" + String(max_load) + " L:" + String(load), "", getNoArrowkey());
       }  //print
+      if (load > max_load) {
+        display("Max load:" + String(max_load) + " L:" + String(load), "Overload !!!", getNoArrowkey());
+        timer = millis();
+      }
     }
-    if (load > max_load) {
-      display("Max load:" + String(max_load) + " L:" + String(load), "Overload !!!", getNoArrowkey());
-      timer = millis();
-    }
+
 
   }
 

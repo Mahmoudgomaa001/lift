@@ -1,7 +1,7 @@
 
-#define btn_num 6
-int btn [btn_num] = {9, A0, A1, A2, 2, 3};
-bool btn_old_sg [btn_num] = {1, 1, 1, 1, 1, 1};
+#define btn_num 7
+int btn [btn_num] = {1, A0, A1, A2, 2, 3, A3};
+bool btn_old_sg [btn_num] = {1, 1, 1, 1, 1, 1, 1};
 
 
 void btnSetup()
@@ -21,7 +21,9 @@ void btnLoop()
       changeFloor(i);
     }
   }//for
-  
+  if (getBtn(6)) {
+    dingO();
+  }
 
 }
 bool getBtn(int i) {

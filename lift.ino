@@ -6,9 +6,8 @@ void setup()
   Serial.begin(9600);
   stepperSetup();
   rfidSetup();
-  delay(5000);
   servoSetup();
-  delay(5000);
+  buzzerSetup()
   btnSetup();
   lcdSetup();
   get_init_floor();
