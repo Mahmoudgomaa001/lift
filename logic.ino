@@ -76,9 +76,9 @@ void changeFloor(int i) {
 
 void handler() {
   if (timer == 0 && access) {
-    display("Authorized access", "Opening door", getNoArrowkey());
+    display("AuthorizedAccess", "Opening door", getNoArrowkey());
     openDoor();
-    display("Max load:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
+    display("MaxLoad:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
     timer = millis();
   }
   if (access &&  millis() < timer + timer_time_out) {
@@ -86,15 +86,15 @@ void handler() {
     if (getBtn(getIRIndex())) {
       if (load_mode) {
         load++;
-        display("Max load:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
+        display("MaxLoad:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
         //print
       }
       else if (!load_mode && load > 0) {
         load--;
-        display("Max load:" + String(max_load) + " L:" + String(load), "", getNoArrowkey());
+        display("MaxLoad:" + String(max_load) + " L:" + String(load), "", getNoArrowkey());
       }  //print
       if (load > max_load) {
-        display("Max load:" + String(max_load) + " L:" + String(load), "Overload !!!", getNoArrowkey());
+        display("MaxLoad:" + String(max_load) + " L:" + String(load), "Overload !!!", getNoArrowkey());
         timer = millis();
       }
     }
