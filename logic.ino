@@ -20,7 +20,7 @@ void get_init_floor() {
   display("", target_str + String("0"), getDownArrowkey());
   stepper(5000);
   current_floor = 0;
-  display("Welcome", no_order_str, getNoArrowkey());
+  display("Welcome !!!", no_order_str, getNoArrowkey());
 }
 int getCurrentFloor() {
   return current_floor;
@@ -131,11 +131,11 @@ void handler() {
     access = 0;
     timer = 0;
     if (getDoorStatus())closeDoor();
-   display("Welcome", no_order_str, getNoArrowkey());
+   display("Welcome !!!", no_order_str, getNoArrowkey());
   }
   if (!access &&  millis() > timer + timer_time_out) {
 
-    display("Welcome", no_order_str, getNoArrowkey());
+    display("Welcome !!!", no_order_str, getNoArrowkey());
   }
 
 }
