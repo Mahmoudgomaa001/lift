@@ -52,20 +52,21 @@ void rfidLoop()
   }
   Serial.println("");
   content.toUpperCase();
-  Serial.println(content.substring(0, 8));
-  if (content.substring(0, 8) == "D3C4A71A" || content.substring(0, 8) == "D6172F1E") //change here the UID of the card/cards that you want to give access
+  content = content.substring(0, 8);
+  if (content != "") //change here the UID of the card/cards that you want to give access
   {
-    set_access(1);
-    Serial.println("Authorized access");
-    Serial.println(); 
+    setCard(content);
+    
+//    Serial.println("Authorized access");
+//    Serial.println();
     delay(100);
   }
 
-  else   {
-    Serial.println("Access denied");
-    delay(1000);
-  }
-  Serial.println();
+//  else   {
+//    Serial.println("Access denied");
+//    delay(1000);
+//  }
+//  Serial.println();
 
   // Re-Init RFID
   rfid.PICC_HaltA(); // Halt PICC

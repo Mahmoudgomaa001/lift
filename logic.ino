@@ -12,7 +12,10 @@ bool load_mode = 1;
 unsigned long  timer = 0;
 #define timer_time_out  10000
 bool  access = 0;
-
+String coming_card = "";
+#define Authorized_size 2
+String Authorized_cards[] = {"D3C4A71A", "D6172F1E"};
+String Authorized_names[] = {"BienvenueOuiam ", "BienvenueRaounak"};
 void get_init_floor() {
   display("", target_str + String("0"), getDownArrowkey());
   stepper(5000);
@@ -75,8 +78,18 @@ void changeFloor(int i) {
 }
 
 void handler() {
+
+  if (coming_card != "") {
+    for (int i = 0; i < Authorized_size; i++) {
+      if (coming_card == Authorized_cards[i]) {
+        display(Authorized_names[i], "Opening door", getNoArrowkey());
+        access = 1;
+        coming_card = "";
+      }
+    }
+  }
   if (timer == 0 && access) {
-    display("AuthorizedAccess", "Opening door", getNoArrowkey());
+
     openDoor();
     display("MaxLoad:" + String(max_load) + " L:" + String(load), "Waiting !!!", getNoArrowkey());
     timer = millis();
@@ -111,9 +124,12 @@ void handler() {
 
 
 }
-bool get_access() {
+bool getAccess() {
   return access;
 }
-void set_access(bool b) {
+void setAccess(bool b) {
   access = b;
+}
+void setCard(String x) {
+  coming_card = x;
 }
