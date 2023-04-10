@@ -114,7 +114,7 @@ void handler() {
         load--;
         display("MaxLoad:" + String(max_load) + " L:" + String(load), "", getNoArrowkey());
         if (load == max_load) {
-          changeFloor(i);
+          changeFloor(target_floor);
         }
       }  //print
       if (load > max_load) {
