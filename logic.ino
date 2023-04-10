@@ -17,9 +17,10 @@ String coming_card = "";
 String Authorized_cards[] = {"D3C4A71A", "D6172F1E"};
 String Authorized_names[] = {"BienvenueOuiam ", "BienvenueRaounak"};
 void get_init_floor() {
-  display("", target_str + String("0"), getDownArrowkey());
+  display("", target_str + String("1"), getDownArrowkey());
   stepper(5000);
-  display(current_str + String("0"), no_order_str, getNoArrowkey());
+  current_floor = 0;
+  display(current_str + String("1"), no_order_str, getNoArrowkey());
 }
 int getCurrentFloor() {
   return current_floor;
