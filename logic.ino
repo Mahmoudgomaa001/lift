@@ -17,10 +17,10 @@ String coming_card = "";
 String Authorized_cards[] = {"D3C4A71A", "D6172F1E"};
 String Authorized_names[] = {"BienvenueOuiam ", "BienvenueRaounak"};
 void get_init_floor() {
-  display("", target_str + String("1"), getDownArrowkey());
+  display("", target_str + String("0"), getDownArrowkey());
   stepper(5000);
   current_floor = 0;
-  display(current_str + String("1"), no_order_str, getNoArrowkey());
+  display("Welcome", no_order_str, getNoArrowkey());
 }
 int getCurrentFloor() {
   return current_floor;
@@ -35,36 +35,37 @@ void changeFloor(int i) {
 
   //  if (!access)return;
   if (load > max_load) {
+    target_floor = i;
     load_mode = 0;
     return;
   }
 
   int diff = 0;
-  target_floor = i + 1;
+  target_floor = i ;
   if (current_floor == i)return;
   else if (current_floor < i) {
     if (getDoorStatus())closeDoor();
 
     diff = i - current_floor;
     for (int i = 0; i < diff; i++) {
-      display(current_str + String(current_floor + 1), target_str + String(target_floor), getUpArrowkey());
+      display(current_str + String(current_floor), target_str + String(target_floor), getUpArrowkey());
       stepper(-getFloorSteps());
       current_floor = current_floor + 1;
-      display(current_str + String(current_floor + 1), target_str + String(target_floor), getUpArrowkey());
+      display(current_str + String(current_floor), target_str + String(target_floor), getUpArrowkey());
     }
-    display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
+    display(current_str + String(current_floor ), no_order_str, getNoArrowkey());
 
   }
   else if (current_floor > i) {
     if (getDoorStatus())closeDoor();
     diff = current_floor - i;
     for (int i = 0; i < diff; i++) {
-      display(current_str + String(current_floor + 1), target_str + String(target_floor), getDownArrowkey());
+      display(current_str + String(current_floor), target_str + String(target_floor), getDownArrowkey());
       stepper(getFloorSteps());
       current_floor = current_floor - 1;
-      display(current_str + String(current_floor + 1), target_str + String(target_floor), getDownArrowkey());
+      display(current_str + String(current_floor ), target_str + String(target_floor), getDownArrowkey());
     }
-    display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
+    display(current_str + String(current_floor ), no_order_str, getNoArrowkey());
 
   }
   if (access) {
@@ -75,12 +76,13 @@ void changeFloor(int i) {
   load_mode = 1;
   load = 0;
   access = 0;
-  display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
+  display(current_str + String(current_floor ), no_order_str, getNoArrowkey());
 }
 
 void handler() {
 
   if (coming_card != "") {
+    dingC();
     for (int i = 0; i < Authorized_size; i++) {
       if (coming_card == Authorized_cards[i]) {
         display(Authorized_names[i], "Opening door", getNoArrowkey());
@@ -88,6 +90,11 @@ void handler() {
         coming_card = "";
       }
     }
+    if (coming_card != "") {
+      display("Anonymous user", "Access denied", getNoArrowkey());
+      coming_card = "";
+    }
+
   }
   if (timer == 0 && access) {
 
@@ -106,6 +113,9 @@ void handler() {
       else if (!load_mode && load > 0) {
         load--;
         display("MaxLoad:" + String(max_load) + " L:" + String(load), "", getNoArrowkey());
+        if (load == max_load) {
+          changeFloor(i);
+        }
       }  //print
       if (load > max_load) {
         display("MaxLoad:" + String(max_load) + " L:" + String(load), "Overload !!!", getNoArrowkey());
@@ -120,7 +130,7 @@ void handler() {
     access = 0;
     timer = 0;
     if (getDoorStatus())closeDoor();
-    display(current_str + String(current_floor + 1), no_order_str, getNoArrowkey());
+    display(current_str + String(current_floor), no_order_str, getNoArrowkey());
   }
 
 
