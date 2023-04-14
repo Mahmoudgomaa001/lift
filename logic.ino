@@ -1,6 +1,6 @@
 int current_floor = -1;
 int target_floor = -1;
-#define floor_steps  1664
+#define floor_steps  1920
 #define current_str  "Current : "
 #define target_str  "Target  : "
 #define no_order_str  "No orders !"
